@@ -1,0 +1,55 @@
+*{
+    margin: 0%;
+    padding: 0%;
+    font-family: Arial, Helvetica, sans-serif;
+    background-color: antiquewhite;
+}
+#foot{
+    height: 200px;
+    text-align: center;
+    padding-top: 50px;
+}
+#main-box{
+    display: flex;
+    justify-content: center;
+}
+.game-box{
+    width: 320px;
+    height: 320px;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+.B{
+    width: 100px;
+    height: 100px;
+    background-color: #D2B48C;
+    border-radius: 10px 10px 10px 10px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: transform 0.2s ease;
+    box-shadow: 2px 2px 5px #c5c5c5,
+    -2px -2px 5px #ffffff;
+}
+.fa-xmark{
+    background-color: transparent;
+    color: white;
+    font-size: 80px;
+}
+.fa-o{
+    background-color: transparent;
+    color: white;
+    font-size: 80px;
+}
+.result{
+    color: black;
+    text-align: center;
+    padding-top: 30px;
+}
+.B:hover{
+    transform: scale(1.05);
+    box-shadow: 3px 3px 5px #c5c5c5ca,
+                -3px -3px 5px #ffffff;
+}
