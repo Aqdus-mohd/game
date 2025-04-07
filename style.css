@@ -62,8 +62,8 @@
     font-size: 50px;
     font-family: cursive;
     text-align: center;
-    position: relative;
-    top : -339px;
+    position: absolute;
+    top: 47%;
     height: 120px;
     background-color: #e29578e6;
     align-content: center;
