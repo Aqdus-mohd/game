@@ -48,7 +48,7 @@ btn.addEventListener("click",function(){
         ans.innerHTML = `<span class="result-text">X Wins</span>  
                         <i class="fa-solid fa-rotate-right restart"></i>`;
         ans.classList.add("result");
-        document.body.append(ans);
+        document.querySelector(".container").appendChild(ans);
         flag = 0;
         document.querySelector("h3").innerText = "";
     }
@@ -61,18 +61,40 @@ btn.addEventListener("click",function(){
     (i2&&i5&&i8&&i2.className==="fa-solid fa-o"&&i5.className==="fa-solid fa-o"&&i8.className==="fa-solid fa-o")||
     (i3&&i6&&i9&&i3.className==="fa-solid fa-o"&&i6.className==="fa-solid fa-o"&&i9.className==="fa-solid fa-o")){
         ans = document.createElement("div");
-        ans.innerHTML = `<span class="result-text">O Wins</span><br>  
+        ans.innerHTML = `<span class="result-text">O Wins</span> 
                         <i class="fa-solid fa-rotate-right restart"></i>`;
         ans.classList.add("result");
-        document.body.append(ans);
+        document.querySelector(".container").appendChild(ans);
         flag = 0;
         document.querySelector("h3").innerText = "";
     }
     if(flag === 0) return;
+
+
+    if (flag !== 0) {
+    let tie = true;
+    for (let btn of btns) {
+        if (!btn.querySelector("i")) {
+            tie = false;
+            break;
+        }
+    }
+    if (tie) {
+        let tie_ans = document.createElement("div");
+        tie_ans.innerHTML = `<span class="result-text">Tie</span>  
+                            <i class="fa-solid fa-rotate-right restart"></i>`;
+        tie_ans.classList.add("result");
+        document.querySelector(".container").appendChild(tie_ans);
+        flag = 0;
+        document.querySelector("h3").innerText = "";
+    }
+}
+
 }
 });
 if(flag === 0) break;
 }
+
 
 document.addEventListener("click", function(e){
     if (e.target.classList.contains("restart")) {

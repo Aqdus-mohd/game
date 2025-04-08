@@ -61,19 +61,18 @@ body {
 
 .result{
     display: flex;
+    align-items: center;
     justify-content: center;
     flex-direction: column;
-    align-items: center;
     color: #540b0e;
     font-size: 50px;
     font-family: cursive;
-    text-align: center;
     position: absolute;
-    top: 47%;
-    width: 110%;
+    top: 32%;
+    transform: translateY(-50%);
+    width: 100%;
     height: 120px;
     background-color: #e29578e6;
-    align-content: center;
     transform: scaleX(0);
     transform-origin: center;
     animation: stretchWidth 0.2s ease-out forwards;
@@ -111,7 +110,19 @@ body {
     top: 1.8%;
     right: -0.4px;
 }
-
+/* .reset{
+    visibility: hidden;
+    width: 35px;
+    height: 35px;
+    background-color: #D2B48C;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-shadow: 2px 2px 4px rgb(161, 161, 161);
+    cursor: pointer;
+    transition: transform 0.2s ease;
+} */
 .reset:hover{
     transform: scale(1.05);
 }
@@ -129,4 +140,11 @@ body {
     cursor: pointer;
     opacity : 0;
     animation:  text-opacity 1s  0.5s forwards;
+}
+.container{
+    position: relative;
+    width: 100%;
+    height: 320px;
+    display: flex;
+    justify-content: center;
 }
