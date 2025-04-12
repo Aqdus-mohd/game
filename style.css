@@ -1,15 +1,35 @@
-*{
+* {
     margin: 0%;
     padding: 0%;
     font-family: Arial, Helvetica, sans-serif;
     background-color: #FFFDD0;
     -webkit-tap-highlight-color: transparent;
 }
+
+body>*:not(.loader) {
+    opacity: 0;
+    pointer-events: none;
+    animation: all-opacity 1s 0.5s forwards;
+    animation-delay: 4s;
+}
+
+
+@keyframes all-opacity {
+    from {
+        opacity: 0;
+    }
+
+    to {
+        opacity: 1;
+        pointer-events: auto;
+    }
+}
+
 body {
     position: relative;
-  }  
-  
-#heading{
+}
+
+#heading {
     font-size: 28px;
     font-weight: 800;
     font-family: Arial, Helvetica, sans-serif;
@@ -17,16 +37,19 @@ body {
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
 }
-#head{
+
+#head {
     height: 150px;
     text-align: center;
     padding-top: 50px;
 }
-#main-box{
+
+#main-box {
     display: flex;
     justify-content: center;
 }
-.game-box{
+
+.game-box {
     width: 320px;
     height: 320px;
     display: flex;
@@ -34,7 +57,8 @@ body {
     gap: 10px;
     position: relative;
 }
-.B{
+
+.B {
     user-select: none;
     width: 100px;
     height: 100px;
@@ -46,20 +70,34 @@ body {
     justify-content: center;
     transition: transform 0.2s ease;
     box-shadow: 2px 2px 5px #c5c5c5,
-    -2px -2px 5px #ffffff;
-}
-.fa-xmark{
-    background-color: transparent;
-    color: #FFFDD0;
-    font-size: 80px;
-}
-.fa-o{
-    background-color: transparent;
-    color: #FFFDD0;
-    font-size: 80px;
+        -2px -2px 5px #ffffff;
 }
 
-.result{
+.fa-xmark {
+    background-color: transparent;
+    color: #FFFDD0;
+    font-size: 0px;
+    animation: inlarge 0.1s ease-in forwards;
+}
+
+.fa-o {
+    background-color: transparent;
+    color: #FFFDD0;
+    font-size: 0px;
+    animation: inlarge 0.1s ease-in forwards;
+}
+
+@keyframes inlarge {
+    0% {
+        font-size: 0px;
+    }
+
+    100% {
+        font-size: 80px;
+    }
+}
+
+.result {
     display: flex;
     align-items: center;
     justify-content: center;
@@ -75,76 +113,161 @@ body {
     background-color: #e29578e6;
     transform: scaleX(0);
     transform-origin: center;
-    animation: stretchWidth 0.2s ease-out forwards;
-} 
-@keyframes stretchWidth{
-    to{
+    animation: stretchWidth 0.2s ease-out forwards 1s;
+}
+
+@keyframes stretchWidth {
+    to {
         transform: scaleX(1);
     }
 }
-.result-text{
+
+.result-text {
     font-family: cursive;
     background-color: transparent;
     position: relative;
     top: -10px;
-    opacity : 0;
-    animation:  text-opacity 1s  0.5s forwards;
+    opacity: 0;
+    animation: text-opacity 1s 0.5s forwards;
+    animation-delay: 1.2s;
 }
-@keyframes text-opacity{
-    from{
-        opacity : 0;
+
+@keyframes text-opacity {
+    from {
+        opacity: 0;
     }
-    to{
-        opacity : 1;
+
+    to {
+        opacity: 1;
     }
 }
-.B:hover{
+
+.B:hover {
     transform: scale(1.05);
     box-shadow: 3px 3px 5px #c5c5c59c,
-                -3px -3px 5px #ffffff;
+        -3px -3px 5px #ffffff;
 }
-.fa-rotate-right{
+
+.fa-rotate-right {
     background-color: transparent;
     font-size: 20px;
     position: relative;
     top: 1.8%;
     right: -0.4px;
 }
-/* .reset{
-    visibility: hidden;
-    width: 35px;
-    height: 35px;
-    background-color: #D2B48C;
-    border-radius: 50%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    box-shadow: 2px 2px 4px rgb(161, 161, 161);
-    cursor: pointer;
-    transition: transform 0.2s ease;
-} */
-.reset:hover{
+
+.reset:hover {
     transform: scale(1.05);
 }
-#foot{
+
+#foot {
     margin-top: 45px;
     display: flex;
     justify-content: center;
     align-items: center;
 }
-.restart{
+
+.restart {
     width: 10px;
     height: 10px;
     position: relative;
     top: -5px;
     cursor: pointer;
-    opacity : 0;
-    animation:  text-opacity 1s  0.5s forwards;
+    opacity: 0;
+    animation: text-opacity 1s 0.5s forwards;
+    animation-delay: 1.2s;
 }
-.container{
+
+.container {
     position: relative;
     width: 100%;
     height: 320px;
     display: flex;
     justify-content: center;
+}
+
+html,
+body {
+    height: 100%;
+    margin: 0;
+}
+
+.loader {
+    display: flex;
+    width: 60px;
+    height: 20px;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    gap: 5px;
+    z-index: 999;
+    animation: fadeOut 4s ease-in-out forwards;
+}
+
+.L {
+    width: 15px;
+    height: 15px;
+    border-radius: 50%;
+    background-color: blueviolet;
+    animation-name: jump;
+    animation-duration: 1s;
+    animation-timing-function: ease-in-out;
+    animation-iteration-count: infinite;
+}
+
+.l1 {
+    animation-delay: 0s;
+}
+
+.l2 {
+    animation-delay: 0.2s;
+}
+
+.l3 {
+    animation-delay: 0.4s;
+}
+
+@keyframes jump {
+    0% {
+        transform: translateY(0px);
+    }
+
+    50% {
+        transform: translateY(-8px);
+    }
+
+    100% {
+        transform: translateY(0px);
+    }
+}
+
+@keyframes fadeOut {
+    0% {
+        opacity: 1;
+    }
+
+    95% {
+        opacity: 1;
+    }
+
+    100% {
+        opacity: 0;
+        display: none;
+    }
+}
+
+.icon-pair{
+    animation: pop 1s ease-in-out forwards;
+}
+@keyframes pop{
+    0%{
+        font-size: 80px;
+    }
+    50%{
+        font-size: 100px;
+    }
+    100%{
+        font-size: 80px;
+    }
 }
